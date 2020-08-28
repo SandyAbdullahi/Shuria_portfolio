@@ -39,6 +39,8 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    # apps
+    'blog',
 
 
     # wagtail

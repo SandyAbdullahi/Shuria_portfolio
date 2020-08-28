@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('adminp/', include(wagtailadmin_urls)),
+    path('admin/', include(wagtailadmin_urls)),
     # path('documents/', include(wagtaildocs_urls)),
     path('', include(wagtail_urls)),
     # path('admin/', admin.site.urls),
