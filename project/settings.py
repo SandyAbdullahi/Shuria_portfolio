@@ -39,9 +39,6 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    # apps
-    'home',
-    'blog',
 
 
     # wagtail
@@ -60,6 +57,9 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    # apps
+    'home',
+    'blog',
 
     'django.contrib.admin',
     'django.contrib.auth',
