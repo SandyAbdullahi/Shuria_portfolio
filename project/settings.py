@@ -28,11 +28,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = ')w3-ff9=tp=3)3d9xceqa#g_t_cji@w#(&*53%28j3icdl4%iz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '*',
-    'https://shuriatest.herokuapp.com/ '
+    'https://shuriatest.herokuapp.com/ ',
+
     ]
 
 
@@ -170,7 +171,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'].update(prod_db)
 	
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
