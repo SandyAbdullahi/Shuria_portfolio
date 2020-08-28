@@ -12,8 +12,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+WAGTAIL_SITE_NAME = 'My Portfolio'
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,6 +39,25 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+
+
+    # wagtail
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
+
+    'modelcluster',
+    'taggit',
+
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +68,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -126,6 +151,11 @@ PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
+
+# Media settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
@@ -142,3 +172,4 @@ DATABASES['default'].update(prod_db)
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+
